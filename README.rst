@@ -8,19 +8,25 @@ It is stored as a series of Healpix maps with Nside=64, so has an angular resolu
 
 **INSTALL**
 
-- in a folder that is already in the PYTHONPATH, create a new folder called ``dust_maps_3d``.
-- copy both the python file (lallement18.py) and the corresponding FITS maps (lallement18_nside64.fits.gz) in the ``dust_maps_3d`` folder.
+Clone the repository: ``git clone https://github.com/nmiller95/dust_maps_3d.git``
 
 **PYTHON VERSIONS AND DEPENDENCIES**
 
 This code has been tested on both Python 2.7 and 3.6.
 The Numpy, Astropy, and Healpy libraries are required.
 
+You may encounter problems relating to healpy. Safe way to get around this is to create a new python environment e.g. with conda::
+
+    conda create -n "myenv" numpy astropy
+    conda activate myenv
+    conda install -c conda-forge healpy
+
+
 **USAGE**
 
 Basic usage::
 
-    >>> from dust_maps_3d import lallement18 as l18
+    >>> import lallement18 as l18
     >>> print(l18.ebv(30,0,300))
     0.111
 
